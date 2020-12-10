@@ -1,5 +1,14 @@
 var issueContainerEl = document.querySelector("#issues-container");
 var limitWarningEl = document.querySelector("#limit-warning");
+var repoNameEl = document.querySelector("#repo-name");
+
+var getRepoName = function() {
+    var queryString = document.location.search;
+    var repoName = queryString.split("=")[1];
+    console.log(repoName);
+    getRepoIssue(repoName);
+    repoNameEl.textContent = repoName;
+};
 
 var getRepoIssue = function(repo) {
     console.log(repo);
@@ -64,4 +73,4 @@ var displayWarning = function(repo) {
     limitWarningEl.appendChild(linkEl);
 }
 
-getRepoIssue('facebook/react');
+getRepoName();
